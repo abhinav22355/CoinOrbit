@@ -1,0 +1,26 @@
+{
+  "name": "coinorbit",
+  "version": "1.0.0",
+  "description": "CoinOrbit - Complete Full-Stack Smart Expense Tracker with Voice Entry & Analytics",
+  "scripts": {
+    "start": "npm run start:backend",
+    "start:backend": "cd backend && npm start",
+    "start:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && npm run dev",
+    "build:frontend": "cd frontend && npm run build",
+    "test:backend": "cd backend && npm test",
+    "test:voice": "node test-parser.mjs"
+  },
+  "keywords": [
+    "expense-tracker",
+    "voice-recognition",
+    "mern",
+    "react",
+    "nodejs",
+    "express",
+    "mongodb",
+    "chartjs"
+  ],
+  "author": "",
+  "license": "ISC"
+}
