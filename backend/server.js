@@ -49,23 +49,26 @@ app.use(notFound);
 app.use(errorHandler);
 
 // Start Server (Port 5001 avoids conflict with macOS AirPlay Receiver on port 5000)
-const PORT = process.env.PORT || 5001;
+// Start server locally
+if (require.main === module) {
+  const PORT = process.env.PORT || 5001;
 
-const server = app.listen(PORT, () => {
-  console.log(`\n==================================================`);
-  console.log(`🚀 [CoinOrbit Server] Active on port ${PORT}`);
-  console.log(`🌐 Health endpoint: http://localhost:${PORT}/api/health`);
-  console.log(`==================================================\n`);
-});
+  const server = app.listen(PORT, () => {
+    console.log(`\n==================================================`);
+    console.log(`🚀 [CoinOrbit Server] Active on port ${PORT}`);
+    console.log(`🌐 Health endpoint: http://localhost:${PORT}/api/health`);
+    console.log(`==================================================\n`);
+  });
 
-// Friendly port error handling (e.g. if port is already taken)
-server.on('error', (err) => {
-  if (err.code === 'EADDRINUSE') {
-    console.error(`\n❌ [Error] Port ${PORT} is already in use.`);
-    console.error(`👉 Solution: Set a different port in backend/.env (e.g. PORT=5002) or kill the existing process.\n`);
-  } else {
-    console.error(`[Server Error]`, err);
-  }
-});
+  server.on('error', (err) => {
+    if (err.code === 'EADDRINUSE') {
+      console.error(`\n❌ [Error] Port ${PORT} is already in use.`);
+      console.error(`👉 Try another port in backend/.env\n`);
+    } else {
+      console.error(`[Server Error]`, err);
+    }
+  });
+}
 
-module.exports = { app, server };
+// Export Express app for Vercel
+module.exports = app;
