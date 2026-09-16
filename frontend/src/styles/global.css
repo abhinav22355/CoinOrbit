@@ -108,23 +108,31 @@ html, body {
    Sidebar Styling
    ========================================================================== */
 
-.sidebar {
-  width: 260px;
-  background-color: var(--bg-dark);
-  color: var(--text-inverse);
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
+.sidebar-brand {
   display: flex;
-  flex-direction: column;
-  z-index: 100;
-  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.06);
-  transition: transform var(--transition-normal);
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.brand-logo-wrap {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-logo-image {
+  width: 42px;
+  height: 42px;
+  display: block;
+  object-fit: contain;
+
 }
 
 .sidebar-header {
-  padding: 1.5rem 1.25rem 1rem;
+  padding: 1.25rem 1.25rem 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1882,6 +1890,22 @@ html, body {
   justify-content: center;
   margin-bottom: 1rem;
   box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+}
+
+.auth-brand-logo-wrap {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-brand-logo-img {
+  width: 64px;
+  height: 64px;
+  display: block;
+  object-fit: contain;
 }
 
 .auth-title {
